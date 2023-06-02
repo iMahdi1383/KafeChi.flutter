@@ -1,8 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:get/get_utils/src/extensions/context_extensions.dart';
-import 'package:get/route_manager.dart';
-import 'package:kafechi/model/products_model.dart';
-import 'package:kafechi/shared/fonts.dart';
+import "package:flutter/material.dart";
+import "package:get/route_manager.dart";
+
+import "package:kafechi/model/products_model.dart";
+import "package:kafechi/shared/ak_widgets/ak_button.dart";
+import "package:kafechi/shared/fonts.dart";
+import "package:kafechi/shared/colors.dart";
+import "package:kafechi/shared/icons.dart";
 
 class ProductPage extends StatelessWidget {
   final Product product = Get.arguments;
@@ -14,7 +17,7 @@ class ProductPage extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: Colors.grey[900],
+        backgroundColor: ColorPalette.background,
         // # نوار بالا
         appBar: AppBar(
           elevation: 0,
@@ -42,9 +45,9 @@ class ProductPage extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.network(
-                    width: context.width,
-                    height: 250,
                     product.thumb,
+                    width: MediaQuery.of(context).size.width,
+                    height: 250,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -85,21 +88,11 @@ class ProductPage extends StatelessWidget {
 
                 // # دکمه افزودن به سبد خرید
                 InkWell(
+                  borderRadius: BorderRadius.circular(10),
                   onTap: () {
                     Get.back();
                   },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.brown[700],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 15, vertical: 10),
-                    child: const Text(
-                      "افزودن به صفحه خرید",
-                      style: Fonts.md,
-                    ),
-                  ),
+                  child: const AkButton(text: "افزودن به سبد خرید",)
                 ),
               ],
             ),

@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import "package:flutter/material.dart";
+import "package:flutter_svg/flutter_svg.dart";
 
-class AppbarButton extends StatelessWidget {
+class AkIconButton extends StatelessWidget {
   final String icon;
-  const AppbarButton({super.key, required this.icon});
+  const AkIconButton({super.key, required this.icon});
 
   @override
   Widget build(BuildContext context) {

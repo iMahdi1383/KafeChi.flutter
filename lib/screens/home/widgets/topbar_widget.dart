@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import "package:flutter/material.dart";
+import "package:get/route_manager.dart";
 
-import 'package:kafechi/shared/appbar_button_widget.dart';
+import "package:kafechi/shared/icons.dart";
+import 'package:kafechi/shared/ak_widgets/ak_iconbutton.dart';
 
 AppBar topbar = AppBar(
   toolbarHeight: 60,
@@ -10,18 +11,20 @@ AppBar topbar = AppBar(
   leading: Container(
     margin: const EdgeInsets.only(right: 20, top: 25),
     // # آیکون منو
-      child: InkWell(
-        onTap: () => {},
-        child: const AppbarButton(icon: 'lib/assets/icons/menu.svg'),
-      ),
+    child: InkWell(
+      borderRadius: BorderRadius.circular(10),
+      onTap: () => {},
+      child: AkIconButton(icon: IconPaths.menu),
+    ),
   ),
   actions: [
     Container(
       margin: const EdgeInsets.only(left: 20, top: 25),
       // # آیکون کاربر
       child: InkWell(
+        borderRadius: BorderRadius.circular(10),
         onTap: () => Get.toNamed("/login"),
-        child: const AppbarButton(icon: 'lib/assets/icons/user.svg'),
+        child: AkIconButton(icon: IconPaths.user),
       ),
     ),
   ],

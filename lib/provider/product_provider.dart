@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-import 'package:kafechi/model/products_model.dart';
-import 'package:kafechi/services/product_services.dart';
+import "package:kafechi/model/products_model.dart";
+import "package:kafechi/services/product_services.dart";
 
 class ProductProvider extends ChangeNotifier {
   final _service = ProductService();

@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
-import 'package:kafechi/model/products_model.dart';
+import "package:flutter/material.dart";
+import "package:get/route_manager.dart";
 
-import 'package:kafechi/shared/fonts.dart';
+import "package:kafechi/shared/fonts.dart";
+import "package:kafechi/shared/colors.dart";
+import "package:kafechi/model/products_model.dart";
 
 class CoffeeCard extends StatelessWidget {
   final Product product;
@@ -13,13 +14,13 @@ class CoffeeCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 15),
       child: InkWell(
+        borderRadius: BorderRadius.circular(20),
         onTap: () {
           Get.toNamed("/product", arguments: product);
         },
         child: Container(
           padding: const EdgeInsets.all(15),
-          width: 250,
-          height: 300,
+          width: 230,
           decoration: BoxDecoration(
             gradient: const LinearGradient(
               begin: Alignment.topRight,
@@ -59,7 +60,7 @@ class CoffeeCard extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 15),
+              const SizedBox(height: 20),
 
               // # متن کارت
               Padding(
@@ -69,10 +70,13 @@ class CoffeeCard extends StatelessWidget {
                   style: Fonts.lg,
                 ),
               ),
+              const SizedBox(
+                height: 10,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Text(
-                  "${product.description.substring(0,30)} ...",
+                  "${product.description.substring(0, 25)} ...",
                   style: Fonts.sm,
                 ),
               ),
@@ -92,11 +96,17 @@ class CoffeeCard extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: const Color(0xffd27842),
+                      color: ColorPalette.accent,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     padding: const EdgeInsets.all(5),
-                    child: const Icon(Icons.add),
+                    child: Row(
+                      children: const [
+                        Icon(Icons.add),
+                        SizedBox(width: 5),
+                        Text("خرید", style: Fonts.md)
+                      ],
+                    ),
                   ),
                 ],
               ),

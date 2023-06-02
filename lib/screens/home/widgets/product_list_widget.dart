@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import "package:flutter/material.dart";
+import "package:provider/provider.dart";
 
-import 'package:kafechi/provider/product_provider.dart';
-import 'package:kafechi/screens/home/widgets/coffee_card_widget.dart';
+import "package:kafechi/provider/product_provider.dart";
+import "package:kafechi/screens/home/widgets/coffee_card_widget.dart";
 
 class ProductList extends StatefulWidget {
   const ProductList({super.key});
@@ -24,7 +24,7 @@ class _ProductListState extends State<ProductList> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 290,
+        height: 305,
         child: Consumer<ProductProvider>(
           builder: (context, value, child) {
             // # لودینگ
@@ -35,32 +35,14 @@ class _ProductListState extends State<ProductList> {
             }
 
             final products = value.products;
-            return SizedBox(
-              height: 290,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  for (int i = 0; i < products.length; i++) CoffeeCard(product: products[i]),
-                ],
-              ),
+            return ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                for (int i = 0; i < products.length; i++)
+                  CoffeeCard(product: products[i]),
+              ],
             );
           },
         ));
   }
 }
-
-
-
-
-
-
-
-    // return SizedBox(
-    //   height: 290,
-    //   child: ListView(
-    //     scrollDirection: Axis.horizontal,
-    //     children: [
-    //       for (int i = 0; i < 5; i++) const CoffeeCard(),
-    //     ],
-    //   ),
-    // );

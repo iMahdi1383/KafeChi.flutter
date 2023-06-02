@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 // # نوار پایین صفحه اصلی
 BottomNavigationBar navbar = BottomNavigationBar(
@@ -7,15 +7,15 @@ BottomNavigationBar navbar = BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: '',
+              label: "",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite),
-              label: '',
+              label: "",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.notifications),
-              label: '',
+              label: "",
             ),
           ],
         );

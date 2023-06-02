@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:provider/provider.dart';
+import "package:flutter/material.dart";
+import "package:get/get_navigation/get_navigation.dart";
+import "package:provider/provider.dart";
 
-import 'package:kafechi/routes.dart';
-import 'package:kafechi/provider/product_provider.dart';
+import "package:kafechi/routes.dart";
+import "package:kafechi/provider/product_provider.dart";
 
 void main() {
   runApp(const MyApp());
@@ -18,10 +18,12 @@ class MyApp extends StatelessWidget {
       create: (context) => ProductProvider(),
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'کافه چی',
+        title: "کافه چی",
         theme: ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch: Colors.brown,
+          colorScheme: ColorScheme.fromSwatch(
+            brightness: Brightness.dark,
+            primarySwatch: Colors.deepPurple,
+          ),
         ),
         getPages: getPages,
         initialRoute: Routes.home,

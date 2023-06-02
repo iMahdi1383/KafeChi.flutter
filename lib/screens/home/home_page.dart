@@ -1,11 +1,13 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-import 'package:kafechi/shared/fonts.dart';
+import "package:kafechi/shared/fonts.dart";
+import "package:kafechi/shared/colors.dart";
+import "package:kafechi/shared/icons.dart";
 
-import 'package:kafechi/screens/home/widgets/topbar_widget.dart';
-import 'package:kafechi/screens/home/widgets/navbar_widget.dart';
-import 'package:kafechi/screens/home/widgets/searchbar_widget.dart';
-import 'package:kafechi/screens/home/widgets/product_list_widget.dart';
+import "package:kafechi/screens/home/widgets/topbar_widget.dart";
+import "package:kafechi/screens/home/widgets/navbar_widget.dart";
+import "package:kafechi/screens/home/widgets/product_list_widget.dart";
+import 'package:kafechi/shared/ak_widgets/ak_textfield.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -15,7 +17,7 @@ class HomePage extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: const Color(0xFF0C1015),
+        backgroundColor: ColorPalette.background,
 
         // # نوار بالا
         appBar: topbar,
@@ -40,7 +42,10 @@ class HomePage extends StatelessWidget {
                 const SizedBox(height: 25),
 
                 // # جستجو
-                searchbar,
+                AkTextField(
+                  placeholder: "قهوه دلخواه خود را جستجو کنید ...",
+                  icon: IconPaths.search,
+                ),
 
                 const SizedBox(height: 25),
 

@@ -1,6 +1,6 @@
-import 'package:http/http.dart' as http;
+import "package:http/http.dart" as http;
 
-import 'package:kafechi/model/products_model.dart';
+import "package:kafechi/model/products_model.dart";
 
 class ProductService {
   Future<List<Product>> getProductsFromAPI() async {
