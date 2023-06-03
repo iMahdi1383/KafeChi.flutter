@@ -5,9 +5,11 @@ import "package:kafechi/screens/splash/splash_screen.dart";
 import "package:kafechi/screens/login/login_screen.dart";
 import "package:kafechi/screens/signup/signup_screen.dart";
 import "package:kafechi/screens/product/product_screen.dart";
+import "package:kafechi/wrapper.dart";
 
 class Routes {
   static String home = "/";
+  static String wrapper = "/wrapper";
   static String splash = "/splash";
   static String login = "/login";
   static String signup = "/signup";
@@ -16,8 +18,12 @@ class Routes {
 
 final getPages = [
   GetPage(
+    name: Routes.wrapper,
+    page: () => const Wrapper(),
+  ),
+  GetPage(
     name: Routes.home,
-    page: () => const HomeScreen(),
+    page: () => HomeScreen(),
   ),
   GetPage(
     name: Routes.splash,

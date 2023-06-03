@@ -1,5 +1,5 @@
+import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
-import "package:get/route_manager.dart";
 
 import "package:kafechi/shared/icons.dart";
 import "package:kafechi/shared/ak_widgets/ak_iconbutton.dart";
@@ -23,7 +23,9 @@ AppBar topbar = AppBar(
       // # آیکون کاربر
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
-        onTap: () => Get.toNamed("/login"),
+        onTap: () {
+          FirebaseAuth.instance.signOut();
+        },
         child: AkIconButton(icon: IconPaths.user),
       ),
     ),

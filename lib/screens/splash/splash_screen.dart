@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 import "package:animated_splash_screen/animated_splash_screen.dart";
-import "package:kafechi/screens/home/home_screen.dart";
-import "package:kafechi/shared/fonts.dart";
+import "package:kafechi/screens/login/login_screen.dart";
 import "package:page_transition/page_transition.dart";
 import "package:flutter_svg/flutter_svg.dart";
 
@@ -15,10 +14,10 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-      nextScreen: const HomeScreen(),
+      nextScreen: const LoginScreen(),
       animationDuration: const Duration(seconds: 3),
       duration: 0,
-      nextRoute: Routes.home,
+      nextRoute: Routes.wrapper,
       splashTransition: SplashTransition.fadeTransition,
       pageTransitionType: PageTransitionType.rotate,
       backgroundColor: ColorPalette.accent,

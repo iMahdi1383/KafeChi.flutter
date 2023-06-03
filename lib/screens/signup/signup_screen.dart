@@ -1,3 +1,4 @@
+import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 import "package:get/route_manager.dart";
 
@@ -8,8 +9,24 @@ import "package:kafechi/shared/icons.dart";
 import "package:kafechi/shared/ak_widgets/ak_textfield.dart";
 import "package:kafechi/shared/ak_widgets/ak_button.dart";
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+
+class _SignupScreenState extends State<SignupScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +34,6 @@ class SignupScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         backgroundColor: ColorPalette.background,
-        // # نوار بالا
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.black38,
@@ -64,7 +80,12 @@ class SignupScreen extends StatelessWidget {
                     const SizedBox(width: 20),
                     Expanded(
                       flex: 3,
-                      child: AkButton(
+                      child: AkButton(onTap: () {
+                            FirebaseAuth.instance.createUserWithEmailAndPassword(
+                              email: emailController.text.trim(),
+                              password: passwordController.text.trim(),
+                            );
+                          },
                         text: "ثبت نام",
                         icon: IconPaths.userAdd,
                         backgroundColor: ColorPalette.accent,

@@ -4,13 +4,15 @@ import "package:flutter_svg/svg.dart";
 import "package:kafechi/shared/fonts.dart";
 
 class AkTextField extends StatelessWidget {
+  final TextEditingController? controller;
   final String placeholder;
   final String icon;
-  const AkTextField({super.key, required this.placeholder, required this.icon});
+  const AkTextField({super.key, required this.placeholder, required this.icon, this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       style: Fonts.md,
       decoration: InputDecoration(
         hintText: placeholder,

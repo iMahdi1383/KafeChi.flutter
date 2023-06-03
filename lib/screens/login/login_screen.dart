@@ -1,3 +1,4 @@
+import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 import "package:get/route_manager.dart";
 
@@ -8,8 +9,23 @@ import "package:kafechi/shared/icons.dart";
 import "package:kafechi/shared/ak_widgets/ak_textfield.dart";
 import "package:kafechi/shared/ak_widgets/ak_button.dart";
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +33,6 @@ class LoginScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         backgroundColor: ColorPalette.background,
-        // # نوار بالا
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.black38,
@@ -48,9 +63,16 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                AkTextField(placeholder: "ایمیل", icon: IconPaths.user),
+                AkTextField(
+                  controller: emailController,
+                  placeholder: "ایمیل",
+                  icon: IconPaths.user,
+                ),
                 const SizedBox(height: 20),
-                AkTextField(placeholder: "رمز عبور", icon: IconPaths.lock),
+                AkTextField(
+                    controller: passwordController,
+                    placeholder: "رمز عبور",
+                    icon: IconPaths.lock),
                 const SizedBox(height: 20),
                 Row(
                   children: [
@@ -65,6 +87,12 @@ class LoginScreen extends StatelessWidget {
                     Expanded(
                         flex: 3,
                         child: AkButton(
+                          onTap: () {
+                            FirebaseAuth.instance.signInWithEmailAndPassword(
+                              email: emailController.text.trim(),
+                              password: passwordController.text.trim(),
+                            );
+                          },
                           text: "ورود",
                           icon: IconPaths.login,
                           backgroundColor: ColorPalette.accent,

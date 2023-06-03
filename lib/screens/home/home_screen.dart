@@ -1,3 +1,4 @@
+import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 
 import "package:kafechi/shared/fonts.dart";
@@ -10,7 +11,8 @@ import "package:kafechi/screens/home/widgets/product_list_widget.dart";
 import "package:kafechi/shared/ak_widgets/ak_textfield.dart";
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final userDetails = FirebaseAuth.instance.currentUser;
+  HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +36,8 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 // # عنوان صفحه
-                const Text(
-                  "شما لایــــــق بهترین ها هستید.",
+                Text(
+                  "${userDetails?.email} خوش آمدید!",
                   style: Fonts.xl,
                 ),
 
