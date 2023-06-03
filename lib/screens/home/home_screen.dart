@@ -7,10 +7,10 @@ import "package:kafechi/shared/icons.dart";
 import "package:kafechi/screens/home/widgets/topbar_widget.dart";
 import "package:kafechi/screens/home/widgets/navbar_widget.dart";
 import "package:kafechi/screens/home/widgets/product_list_widget.dart";
-import 'package:kafechi/shared/ak_widgets/ak_textfield.dart';
+import "package:kafechi/shared/ak_widgets/ak_textfield.dart";
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
 
                 // # عنوان صفحه
                 const Text(
-                  "شما لایــــــــــق بهترین طعم ها هستید.",
+                  "شما لایــــــق بهترین ها هستید.",
                   style: Fonts.xl,
                 ),
 
@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
 
                 // # جستجو
                 AkTextField(
-                  placeholder: "قهوه دلخواه خود را جستجو کنید ...",
+                  placeholder: " جستجوی موبایل دلخواه شما ...",
                   icon: IconPaths.search,
                 ),
 

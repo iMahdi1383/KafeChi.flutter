@@ -24,7 +24,7 @@ class Fonts {
   static const TextStyle xl = TextStyle(
     fontFamily: "dana",
     fontWeight: FontWeight.w700,
-    fontSize: 28,
+    fontSize: 30,
     color: Colors.white,
   );
 }

@@ -5,12 +5,11 @@ import "package:kafechi/model/products_model.dart";
 import "package:kafechi/shared/ak_widgets/ak_button.dart";
 import "package:kafechi/shared/fonts.dart";
 import "package:kafechi/shared/colors.dart";
-import "package:kafechi/shared/icons.dart";
 
-class ProductPage extends StatelessWidget {
+class ProductScreen extends StatelessWidget {
   final Product product = Get.arguments;
 
-  ProductPage({super.key});
+  ProductScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -88,12 +87,14 @@ class ProductPage extends StatelessWidget {
 
                 // # دکمه افزودن به سبد خرید
                 InkWell(
-                  borderRadius: BorderRadius.circular(10),
-                  onTap: () {
-                    Get.back();
-                  },
-                  child: const AkButton(text: "افزودن به سبد خرید",)
-                ),
+                    borderRadius: BorderRadius.circular(10),
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: const AkButton(
+                      text: "افزودن به سبد خرید",
+                      backgroundColor: ColorPalette.accent,
+                    )),
               ],
             ),
           ),

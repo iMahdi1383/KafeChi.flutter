@@ -5,11 +5,11 @@ import "package:kafechi/shared/fonts.dart";
 import "package:kafechi/shared/colors.dart";
 import "package:kafechi/shared/icons.dart";
 
-import 'package:kafechi/shared/ak_widgets/ak_textfield.dart';
-import 'package:kafechi/shared/ak_widgets/ak_button.dart';
+import "package:kafechi/shared/ak_widgets/ak_textfield.dart";
+import "package:kafechi/shared/ak_widgets/ak_button.dart";
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,50 +43,32 @@ class LoginPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: Image.asset(
-                    'lib/assets/images/login.png',
-                    // height: 50,
+                    "lib/assets/images/login.png",
+                    height: 250,
                   ),
                 ),
                 const SizedBox(height: 20),
-                AkTextField(placeholder: "نام کاربری", icon: IconPaths.user),
+                AkTextField(placeholder: "ایمیل", icon: IconPaths.user),
                 const SizedBox(height: 20),
                 AkTextField(placeholder: "رمز عبور", icon: IconPaths.lock),
                 const SizedBox(height: 20),
                 Row(
                   children: [
                     Expanded(
-                      flex: 2,
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(15),
-                        onTap: () {},
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 20),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: ColorPalette.accent,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "ثبت نام",
-                              style: TextStyle(
-                                fontFamily: "dana",
-                                fontWeight: FontWeight.w600,
-                                fontSize: 20,
-                                color: ColorPalette.accent,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                        flex: 2,
+                        child: AkButton(
+                          text: "ثبت نام",
+                          borderColor: ColorPalette.accent,
+                          onTap: () => Get.toNamed("/signup"),
+                        )),
                     const SizedBox(width: 20),
                     Expanded(
                         flex: 3,
-                        child: AkButton(text: 'ورود', icon: IconPaths.login)),
+                        child: AkButton(
+                          text: "ورود",
+                          icon: IconPaths.login,
+                          backgroundColor: ColorPalette.accent,
+                        )),
                   ],
                 ),
               ],
